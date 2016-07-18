@@ -5,22 +5,30 @@
 # @version 1.0 (2016-07-15)
 #
 
-CP=/bin/cp
-RM=/bin/rm
+export CP=/bin/cp
+export RM=/bin/rm
+export LIBSUFFIx=so
+
+export UNAME_S = $(shell uname -s)
+ifeq ($(UNAME_S), Darwin)
+  export LIBSUFFIX=dylib
+endif
+
 
 demo: swiftFromC
 	@echo "\nThe demo program is all built.\nHere's the output from the program:\n"
 	@./csrc/swiftFromC
 
 swiftFromC: library
-	$(CP) -f libswiftfromc.so csrc
+	$(CP) -f libswiftfromc.$(LIBSUFFIX) csrc
 	$(MAKE) -C csrc
 
 library: Sources/library.swift
 	swift build -Xswiftc -emit-library
 
 clean:
-	$(RM) -f libswiftfromc.so
+	$(RM) -f libswiftfromc.$(LIBSUFFIX)
+	-$(RM) -rf libswiftfromc.dylib.dSYM
 	$(RM) -f *~
 	$(RM) -f Sources/*~
 	$(MAKE) -C csrc clean
@@ -30,4 +38,3 @@ distclean: clean
 	$(MAKE) -C csrc distclean
 
 .PHONY: all clean realclean
-
