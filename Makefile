@@ -7,7 +7,7 @@
 
 export CP=/bin/cp
 export RM=/bin/rm
-export LIBSUFFIx=so
+export LIBSUFFIX=so
 
 export UNAME_S = $(shell uname -s)
 ifeq ($(UNAME_S), Darwin)
