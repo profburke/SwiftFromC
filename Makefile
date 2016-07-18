@@ -7,7 +7,7 @@
 
 export CP=/bin/cp
 export RM=/bin/rm
-export LIBSUFFIx=so
+export LIBSUFFIX=so
 
 export UNAME_S = $(shell uname -s)
 ifeq ($(UNAME_S), Darwin)
@@ -17,7 +17,7 @@ endif
 
 demo: swiftFromC
 	@echo "\nThe demo program is all built.\nHere's the output from the program:\n"
-	@./csrc/swiftFromC
+	@LD_LIBRARY_PATH=./csrc ./csrc/swiftFromC
 
 swiftFromC: library
 	$(CP) -f libswiftfromc.$(LIBSUFFIX) csrc
