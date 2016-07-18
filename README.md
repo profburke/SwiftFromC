@@ -6,3 +6,10 @@ This project demonstrates creating a dynamic library (.so on Linux,
 
 
 
+
+#### Instructions
+
+To run the demo, cd into the project's top directory and type
+
+    make
+
