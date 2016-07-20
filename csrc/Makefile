@@ -15,4 +15,4 @@ clean:
 distclean: clean
 	$(RM) -f swiftFromC
 
-.PHONY: all clean realclean
+.PHONY: main clean distclean
