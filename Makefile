@@ -37,4 +37,4 @@ distclean: clean
 	$(RM) -rf .build
 	$(MAKE) -C csrc distclean
 
-.PHONY: all clean realclean
+.PHONY: demo clean distclean
