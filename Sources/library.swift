@@ -21,6 +21,6 @@ func retrieveADouble() -> Double {
 @_silgen_name("stringToC")
 func stringToC() -> UnsafeMutablePointer<Int8> {
      let result = "Hello from Swift"
-     let cString = result.cString(using: NSASCIIStringEncoding)!
-     return UnsafeMutablePointer<Int8>(cString)
+     let cString = result.cString(using: String.Encoding.ascii)!
+     return UnsafeMutablePointer<Int8>(mutating: cString)
 }
