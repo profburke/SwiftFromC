@@ -12,7 +12,7 @@
 
 int main() {
   printf("Swift is giving us an int: %d\n", retrieveAnInt());
-  printf("An now we get back a double: %f\n", retrieveADouble());
+  printf("And now we get back a double: %f\n", retrieveADouble());
   printf("A message from Swift: %s\n", stringToC());
   return 0;
 }
